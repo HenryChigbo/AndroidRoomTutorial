@@ -3,14 +3,15 @@ package com.inducesmile.androidroomtutorial.database;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
+import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 @Database(entities = {Message.class}, version = 1)
-public abstract class AppDatabase {
+public abstract class AppDatabase extends RoomDatabase{
 
     private static AppDatabase appDatabase;
 
-    abstract Message message();
+    public abstract MessageDao message();
 
     private Context context;
 
@@ -22,7 +23,10 @@ public abstract class AppDatabase {
                     .allowMainThreadQueries()
                     .build();
         }
+        return appDatabase;
     }
 
-
+    public static void destroyInstance() {
+        appDatabase = null;
+    }
 }

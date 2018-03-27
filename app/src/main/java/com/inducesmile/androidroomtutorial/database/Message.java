@@ -8,17 +8,14 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "Message")
 public class Message {
 
-
     @PrimaryKey(autoGenerate = true)
     private int id;
-
 
     @ColumnInfo(name = "content")
     private String content;
 
 
-    public Message(int id, String content) {
-        this.id = id;
+    public Message(String content) {
         this.content = content;
     }
 

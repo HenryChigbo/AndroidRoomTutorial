@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android Room</string>
+    <string name="enter_message">Enter message</string>
 </resources>
